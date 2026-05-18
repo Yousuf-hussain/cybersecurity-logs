@@ -1,0 +1,3 @@
+2026-05-17 13:10:22 DDOS_ALERT source_ip=88.21.45.10 requests=100000 target=web-server
+
+2026-05-17 13:15:50 UNUSUAL_TRAFFIC source_ip=44.18.22.9 destination=db-server
