@@ -1,0 +1,3 @@
+2026-05-17 11:02:22 FIREWALL_BLOCK source_ip=45.88.21.11 destination_port=22 reason=Blocked SSH Attack
+
+2026-05-17 11:05:30 FIREWALL_ALERT source_ip=200.14.55.9 event=Traffic Spike
