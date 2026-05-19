@@ -1,30 +1,43 @@
-2026-05-17 11:02:22 FIREWALL_BLOCK source_ip=45.88.21.11 destination_port=22 reason=Blocked SSH Attack
-
-2026-05-17 11:05:30 FIREWALL_ALERT source_ip=200.14.55.9 event=Traffic Spike
-2026-05-17 11:02:22 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
-2026-05-17 11:05:30 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
-2026-05-17 11:08:42 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
-2026-05-17 11:10:05 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_19] event=Port Scan
-2026-05-17 11:12:21 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
-2026-05-17 11:15:11 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
-2026-05-17 11:18:33 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
-2026-05-17 11:20:44 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_22] event=Suspicious Connection Volume
-2026-05-17 11:23:15 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
-2026-05-17 11:25:02 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_23] event=Unusual Outbound Traffic
-2026-05-17 11:27:18 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_24] destination_port=80 reason=HTTP Flood
-2026-05-17 11:30:47 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
-2026-05-17 11:33:09 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
-2026-05-17 11:35:12 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_25] event=Repeated Access Attempts
-2026-05-17 11:38:55 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
-2026-05-17 11:40:10 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_26] event=Abnormal Traffic Pattern
-2026-05-17 11:42:28 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
-2026-05-17 11:45:35 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_27] event=Botnet Traffic
-2026-05-17 11:48:41 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_24] destination_port=80 reason=HTTP Flood
-2026-05-17 11:50:19 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
-2026-05-17 11:53:03 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_28] destination_port=21 reason=FTP Brute Force
-2026-05-17 11:55:49 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_29] event=Malicious Connection Attempt
-2026-05-17 11:58:17 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
-2026-05-17 12:00:05 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_30] event=Port Enumeration
-2026-05-17 12:02:31 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
-2026-05-17 12:05:15 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
-2026-05-17 12:08:22 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
+2025-07-14T06:00:05.112Z | FW-2001 | INFO | FW-CORE-01 | 10.10.1.45 | 10.10.50.10 | 54321 | 443 | TCP | ALLOW | RULE-INT-001 | 4096 | HTTPS to intranet portal. Normal business traffic.
+2025-07-14T06:00:18.334Z | FW-2001 | INFO | FW-CORE-01 | 10.10.2.88 | 8.8.8.8 | 49201 | 53 | UDP | ALLOW | RULE-DNS-001 | 128 | DNS query to Google DNS. Normal.
+2025-07-14T06:01:44.882Z | FW-2002 | WARNING | FW-CORE-02 | 203.78.114.56 | 10.10.0.1 | 48822 | 22 | TCP | DENY | RULE-EXT-SSH-BLOCK | 0 | Inbound SSH attempt from external IP. GEO: CN-Shanghai. Blocked.
+2025-07-14T06:02:15.001Z | FW-2002 | WARNING | FW-CORE-02 | 203.78.114.56 | 10.10.0.1 | 48823 | 22 | TCP | DENY | RULE-EXT-SSH-BLOCK | 0 | Inbound SSH attempt from external IP. GEO: CN-Shanghai. Blocked.
+2025-07-14T06:02:33.441Z | FW-2002 | HIGH | FW-CORE-02 | 203.78.114.56 | 10.10.0.1 | 48824 | 22 | TCP | DENY | RULE-EXT-SSH-BLOCK | 0 | Repeated inbound SSH from same source. Possible brute force. GEO: CN-Shanghai.
+2025-07-14T06:03:10.334Z | FW-2003 | INFO | FW-DMZ-01 | 10.10.100.5 | 172.217.14.196 | 52001 | 443 | TCP | ALLOW | RULE-DMZ-OUT-001 | 8192 | HTTPS outbound from DMZ web server. Normal CDN traffic.
+2025-07-14T06:04:55.778Z | FW-2004 | CRITICAL | FW-CORE-01 | 45.152.66.201 | 10.10.0.254 | 0 | 0 | ICMP | DENY | RULE-BLOCK-TI | 0 | IP matches Threat Intel feed: MISP-TLP-RED. Known APT-29 infrastructure. GEO: RU-Moscow. Auto-blocked.
+2025-07-14T06:04:55.778Z | FW-2004 | CRITICAL | FW-CORE-01 | 45.152.66.201 | 10.10.0.254 | 0 | 0 | ICMP | DENY | RULE-BLOCK-TI | 0 | IP matches Threat Intel feed: MISP-TLP-RED. Known APT-29 infrastructure. GEO: RU-Moscow. Auto-blocked.
+2025-07-14T06:06:22.009Z | FW-2005 | HIGH | FW-CORE-01 | 10.10.8.77 | 198.51.100.240 | 55001 | 4444 | TCP | DENY | RULE-SUSPICIOUS-PORT | 0 | Outbound connection to non-standard high-risk port 4444. Possible C2 channel. Endpoint: WS-DEV-044.
+2025-07-14T06:07:33.334Z | FW-2001 | INFO | FW-CORE-02 | 10.10.3.112 | 10.10.50.20 | 61001 | 80 | TCP | ALLOW | RULE-INT-002 | 2048 | HTTP to internal app server. Normal.
+2025-07-14T06:08:44.112Z | FW-2006 | CRITICAL | FW-CORE-01 | 185.220.101.48 | 10.10.0.1 | 0 | 443 | TCP | DENY | RULE-BLOCK-TI | 0 | Tor exit node detected. IP in known Tor exit list. GEO: DE-Frankfurt. Blocked. Rule: GEO-BLOCK-001
+2025-07-14T06:09:15.882Z | FW-2007 | HIGH | FW-CORE-02 | 10.10.5.201 | 10.10.20.15 | 49800 | 445 | TCP | ALLOW | RULE-INT-SMB | 512 | SMB connection from backup server to DC. Flagged: unusual initiator. Ref: INC-20250714-0067
+2025-07-14T06:09:15.882Z | FW-2007 | HIGH | FW-CORE-02 | 10.10.5.201 | 10.10.20.15 | 49800 | 445 | TCP | ALLOW | RULE-INT-SMB | 512 | SMB connection from backup server to DC. Flagged: unusual initiator. Ref: INC-20250714-0067
+2025-07-14T06:10:30.441Z | FW-2008 | CRITICAL | FW-CORE-01 | 10.10.3.201 | 45.152.66.201 | 52200 | 8080 | TCP | DENY | RULE-EGRESS-BLOCK | 0 | Outbound connection to known malicious IP. Possible C2 beacon. Endpoint: WS-IT-033. INCIDENT: INC-20250714-0071
+2025-07-14T06:11:02.334Z | FW-2009 | WARNING | FW-BRANCH-05 | 192.168.10.55 | 10.10.50.30 | 57221 | 3389 | TCP | ALLOW | RULE-RDP-INTERNAL | 1024 | RDP from branch office. Allowed but flagged for monitoring. User: unknown at time of log.
+2025-07-14T06:12:00.009Z | FW-2010 | INFO | FW-CORE-01 | 10.10.4.77 | 172.16.10.5 | 50101 | 1433 | TCP | ALLOW | RULE-DB-INT | 512 | SQL Server connection from sales workstation. Normal ERP activity.
+2025-07-14T06:13:22.556Z | FW-2011 | WARNING | FW-DMZ-01 | 10.10.100.8 | 1.1.1.1 | 55443 | 53 | UDP | ALLOW | RULE-DNS-001 | 128 | DNS query from DMZ. Destination: Cloudflare. Freq: normal.
+2025-07-14T06:14:45.778Z | FW-2012 | HIGH | FW-CORE-01 | 10.10.8.77 | 198.51.100.240 | 55002 | 4444 | TCP | DENY | RULE-SUSPICIOUS-PORT | 0 | Repeated outbound to port 4444. Attempt: 2. Possible staged malware callback. Endpoint: WS-DEV-044.
+2025-07-14T06:15:30.334Z | FW-2013 | CRITICAL | FW-CORE-02 | 10.10.7.150 | 203.0.113.88 | 49900 | 443 | TCP | DENY | RULE-DLP-BLOCK | 102400 | DLP policy triggered: large outbound HTTPS transfer (100KB+). Possible data exfiltration. User: mthompson. Endpoint: SRV-FILESVR-03.
+2025-07-14T06:16:00.112Z | FW-2001 | INFO | FW-CORE-01 | 10.10.9.14 | 10.10.50.10 | 62001 | 443 | TCP | ALLOW | RULE-INT-001 | 3072 | HTTPS to intranet. Normal business traffic.
+2025-07-14T06:17:18.441Z | FW-2014 | HIGH | FW-CORE-01 | 91.108.56.130 | 10.10.20.10 | 0 | 22 | TCP | DENY | RULE-EXT-SSH-BLOCK | 0 | Inbound SSH attempt from Telegram infrastructure IP. GEO: IR-Tehran. Blocked. TI match: MISP-ORANGE
+2025-07-14T06:18:34.334Z | FW-2015 | CRITICAL | FW-CORE-02 | 10.10.6.45 | 203.0.113.55 | 50100 | 21 | TCP | DENY | RULE-FTP-BLOCK | 0 | Outbound FTP attempt to external host. Protocol blocked per policy. Endpoint: WS-FINANCE-008. POSSIBLE EXFIL.
+2025-07-14T06:18:34.334Z | FW-2015 | CRITICAL | FW-CORE-02 | 10.10.6.45 | 203.0.113.55 | 50100 | 21 | TCP | DENY | RULE-FTP-BLOCK | 0 | Outbound FTP attempt to external host. Protocol blocked per policy. Endpoint: WS-FINANCE-008. POSSIBLE EXFIL.
+2025-07-14T06:19:55.009Z | FW-2016 | WARNING | FW-CORE-01 | 172.16.50.3 | 10.10.20.1 | 44001 | 389 | TCP | ALLOW | RULE-LDAP-INT | 256 | LDAP query from non-standard host to DC. Possible recon. Host: 172.16.50.3 unregistered.
+2025-07-14T06:21:00.334Z | FW-2017 | HIGH | FW-CORE-01 | 10.10.5.201 | 10.10.20.16 | 49801 | 445 | TCP | ALLOW | RULE-INT-SMB | 1024 | SMB lateral movement pattern detected. SRV-BACKUP-01 connecting to multiple DCs in sequence. Rule: LATERAL-MOVE-DETECT
+2025-07-14T06:22:14.882Z | FW-2018 | INFO | FW-CORE-01 | 10.10.1.88 | 8.8.4.4 | 50002 | 53 | UDP | ALLOW | RULE-DNS-001 | 96 | DNS query. Normal.
+2025-07-14T06:23:31.441Z | FW-2019 | CRITICAL | FW-DMZ-01 | 10.10.100.5 | 185.234.218.55 | 49000 | 443 | TCP | DENY | RULE-EGRESS-BLOCK | 51200 | Outbound to known bulletproof hosting provider. Possible C2. Size: 50KB. DMZ server: WEB-SRV-DMZ-01.
+2025-07-14T06:24:45.334Z | FW-2020 | HIGH | FW-CORE-02 | 198.18.55.100 | 10.10.0.1 | 0 | 0 | ICMP | DENY | RULE-PORTSCAN-DETECT | 0 | Port scan detected from external IP. Ports scanned: 22,23,80,443,3389,8080,8443. GEO: BR-SaoPaulo. Action: TEMP_BLOCK
+2025-07-14T06:24:45.334Z | FW-2020 | HIGH | FW-CORE-02 | 198.18.55.100 | 10.10.0.1 | 0 | 0 | ICMP | DENY | RULE-PORTSCAN-DETECT | 0 | Port scan detected from external IP. Ports scanned: 22,23,80,443,3389,8080,8443. GEO: BR-SaoPaulo. Action: TEMP_BLOCK
+2025-07-14T06:26:00.112Z | FW-2001 | INFO | FW-CORE-01 | 10.10.3.200 | 10.10.50.15 | 51801 | 8443 | TCP | ALLOW | RULE-MGMT-ALLOW | 2048 | HTTPS monitoring agent callback. Normal.
+2025-07-14T06:27:22.334Z | FW-2021 | WARNING | FW-CORE-01 | 10.10.8.77 | 198.51.100.240 | 55003 | 4444 | TCP | DENY | RULE-SUSPICIOUS-PORT | 0 | 3rd outbound attempt to port 4444 in 21 min. Auto-escalated. Endpoint: WS-DEV-044. INCIDENT: INC-20250714-0075
+2025-07-14T06:28:40.778Z | FW-2022 | HIGH | FW-BRANCH-05 | 192.168.10.55 | 10.10.20.10 | 57999 | 88 | TCP | ALLOW | RULE-KERBEROS | 128 | Kerberos TGT request from branch. Flagged: new device + off-hours. Correlates with EVT-1015.
+2025-07-14T06:30:00.441Z | FW-2023 | CRITICAL | FW-CORE-01 | 10.10.7.150 | 203.0.113.88 | 49901 | 443 | TCP | DENY | RULE-DLP-BLOCK | 204800 | DLP block: 200KB outbound HTTPS. Second attempt in 15 min. Escalated. INCIDENT: INC-20250714-0078
+2025-07-14T06:31:15.334Z | FW-2024 | WARNING | FW-DMZ-01 | 10.10.100.12 | 8.8.8.8 | 44322 | 53 | UDP | ALLOW | RULE-DNS-001 | 512 | DNS TXT record query. High freq: 300 queries in 5 min. Possible DNS tunneling indicator.
+2025-07-14T06:31:15.334Z | FW-2024 | WARNING | FW-DMZ-01 | 10.10.100.12 | 8.8.8.8 | 44322 | 53 | UDP | ALLOW | RULE-DNS-001 | 512 | DNS TXT record query. High freq: 300 queries in 5 min. Possible DNS tunneling indicator.
+2025-07-14T06:33:00.009Z | FW-2025 | INFO | FW-CORE-02 | 10.10.4.55 | 10.10.50.20 | 63001 | 443 | TCP | ALLOW | RULE-INT-001 | 1536 | HTTPS to internal portal. Normal.
+2025-07-14T06:34:22.556Z | FW-2026 | HIGH | FW-CORE-01 | 10.10.5.201 | 10.10.20.17 | 49802 | 445 | TCP | ALLOW | RULE-INT-SMB | 2048 | SMB: SRV-BACKUP-01 connecting to 3rd DC in 13 min. Lateral movement alert escalated to SOC.
+2025-07-14T06:36:00.334Z | FW-2027 | CRITICAL | FW-CORE-02 | 103.25.206.88 | 10.10.100.8 | 0 | 80 | TCP | DENY | RULE-WAF-BLOCK | 0 | WAF blocked SQL injection attempt on public web server. Signature: SQLI-UNION-SELECT. GEO: IN-Mumbai.
+2025-07-14T06:36:00.334Z | FW-2027 | CRITICAL | FW-CORE-02 | 103.25.206.88 | 10.10.100.8 | 0 | 80 | TCP | DENY | RULE-WAF-BLOCK | 0 | WAF blocked SQL injection attempt on public web server. Signature: SQLI-UNION-SELECT. GEO: IN-Mumbai.
+2025-07-14T06:38:12.441Z | FW-2028 | HIGH | FW-CORE-01 | 10.10.8.77 | 10.10.20.10 | 55100 | 5985 | TCP | DENY | RULE-WINRM-BLOCK | 0 | WinRM connection attempt from dev workstation to DC. Action: BLOCKED. Rule: LATERAL-RESTRICT-001.
+2025-07-14T06:40:00.112Z | FW-2001 | INFO | FW-CORE-01 | 10.10.2.67 | 10.10.50.10 | 64001 | 443 | TCP | ALLOW | RULE-INT-001 | 4096 | HTTPS intranet. Normal.
+2025-07-14T06:41:33.334Z | FW-2029 | WARNING | FW-CORE-02 | 10.10.6.33 | 104.18.22.47 | 56000 | 443 | TCP | ALLOW | RULE-WEB-BROWSE | 8192 | HTTPS to Cloudflare-hosted domain. Normal web browsing.
+2025-07-14T06:43:00.882Z | FW-2030 | CRITICAL | FW-CORE-01 | 10.10.3.201 | 45.152.66.201 | 52201 | 8080 | TCP | DENY | RULE-EGRESS-BLOCK | 0 | 2nd beacon attempt to known malicious IP. 30-min interval. Beaconing pattern confirmed. INCIDENT: INC-20250714-0071
