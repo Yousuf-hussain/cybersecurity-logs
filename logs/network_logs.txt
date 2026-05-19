@@ -1,30 +1,42 @@
-2026-05-17 13:10:22 DDOS_ALERT source_ip=88.21.45.10 requests=100000 target=web-server
-
-2026-05-17 13:15:50 UNUSUAL_TRAFFIC source_ip=44.18.22.9 destination=db-server
-2026-05-17 13:10:22 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
-2026-05-17 13:15:50 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_6] destination=db-server
-2026-05-17 13:18:05 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
-2026-05-17 13:20:14 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_31] destination=payment-server
-2026-05-17 13:22:33 PORT_SCAN source_ip=[REDACTED_IPV4_ADDRESS_32] target=internal-network
-2026-05-17 13:25:11 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_33] requests=85000 target=api-gateway
-2026-05-17 13:27:42 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_6] destination=db-server
-2026-05-17 13:30:09 DNS_TUNNELING source_ip=[REDACTED_IPV4_ADDRESS_34] destination=dns-server
-2026-05-17 13:32:58 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
-2026-05-17 13:35:16 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_35] destination=mail-server
-2026-05-17 13:38:45 PORT_SCAN source_ip=[REDACTED_IPV4_ADDRESS_32] target=internal-network
-2026-05-17 13:40:22 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_36] requests=92000 target=authentication-server
-2026-05-17 13:42:51 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_6] destination=db-server
-2026-05-17 13:45:05 DATA_EXFILTRATION source_ip=[REDACTED_IPV4_ADDRESS_37] target=file-server
-2026-05-17 13:48:13 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
-2026-05-17 13:50:40 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_38] destination=backup-server
-2026-05-17 13:53:01 PORT_SCAN source_ip=[REDACTED_IPV4_ADDRESS_39] target=dmz-network
-2026-05-17 13:55:27 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_33] requests=85000 target=api-gateway
-2026-05-17 13:58:42 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_6] destination=db-server
-2026-05-17 14:00:18 DNS_TUNNELING source_ip=[REDACTED_IPV4_ADDRESS_34] destination=dns-server
-2026-05-17 14:03:33 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
-2026-05-17 14:05:21 DATA_EXFILTRATION source_ip=[REDACTED_IPV4_ADDRESS_40] target=finance-server
-2026-05-17 14:08:09 PORT_SCAN source_ip=[REDACTED_IPV4_ADDRESS_32] target=internal-network
-2026-05-17 14:10:55 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_36] requests=92000 target=authentication-server
-2026-05-17 14:13:24 UNUSUAL_TRAFFIC source_ip=[REDACTED_IPV4_ADDRESS_6] destination=db-server
-2026-05-17 14:15:47 DATA_EXFILTRATION source_ip=[REDACTED_IPV4_ADDRESS_37] target=file-server
-2026-05-17 14:18:30 DDOS_ALERT source_ip=[REDACTED_IPV4_ADDRESS_5] requests=100000 target=web-server
+2025-07-14T06:00:10.334Z | NET-4001 | INFO | NIDS-CORE-01 | 10.10.1.45 | 10.10.50.10 | TCP | 54321 | 443 | 4096 | 1 | ALLOW | Normal HTTPS internal traffic. User: jsmith. App: IntranetPortal.
+2025-07-14T06:00:45.112Z | NET-4002 | INFO | NIDS-CORE-01 | 10.10.2.88 | 8.8.8.8 | UDP | 49201 | 53 | 128 | 1 | ALLOW | DNS query: office365.com. Normal business traffic.
+2025-07-14T06:01:30.882Z | NET-4003 | WARNING | NIDS-DMZ-01 | 10.10.100.12 | 8.8.8.8 | UDP | 44301 | 53 | 512 | 60 | ALLOW | DNS TXT record queries: high frequency. Dest: suspicious-domain-xyz[.]com. Possible DNS tunneling. Sensor: NIDS-DMZ-01
+2025-07-14T06:01:30.882Z | NET-4003 | WARNING | NIDS-DMZ-01 | 10.10.100.12 | 8.8.8.8 | UDP | 44301 | 53 | 512 | 60 | ALLOW | DNS TXT record queries: high frequency. Dest: suspicious-domain-xyz[.]com. Possible DNS tunneling. Sensor: NIDS-DMZ-01
+2025-07-14T06:02:15.441Z | NET-4004 | HIGH | NIDS-CORE-01 | 10.10.3.201 | 45.152.66.201 | TCP | 52200 | 8080 | 1024 | 1 | BLOCK | Outbound to known C2 IP. Beacon interval: 30 min. First callback. INCIDENT: INC-20250714-0071
+2025-07-14T06:03:00.334Z | NET-4005 | INFO | NIDS-CORE-01 | 10.10.4.77 | 172.16.10.5 | TCP | 50101 | 1433 | 2048 | 4 | ALLOW | SQL Server traffic. Normal ERP queries. App: SalesForce_ERP_v3.2.
+2025-07-14T06:04:22.009Z | NET-4006 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.15 | TCP | 49800 | 445 | 1536 | 1 | ALERT | SMB from SRV-BACKUP-01 to DC01. Unusual source. Correlates with ML-3007 (Mimikatz). LATERAL MOVEMENT.
+2025-07-14T06:04:22.009Z | NET-4006 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.15 | TCP | 49800 | 445 | 1536 | 1 | ALERT | SMB from SRV-BACKUP-01 to DC01. Unusual source. Correlates with ML-3007 (Mimikatz). LATERAL MOVEMENT.
+2025-07-14T06:05:40.334Z | NET-4007 | CRITICAL | NIDS-CORE-01 | 10.10.7.150 | 203.0.113.88 | TCP | 49900 | 443 | 102400 | 1 | BLOCK | Large outbound HTTPS. 100KB to unknown host. User: mthompson. DLP correlation. POSSIBLE DATA EXFIL.
+2025-07-14T06:06:10.778Z | NET-4008 | INFO | NIDS-CORE-01 | 10.10.9.14 | 10.10.50.20 | TCP | 62001 | 80 | 1024 | 2 | ALLOW | HTTP to internal app server. Normal. App: HR_Portal_v2.1.
+2025-07-14T06:07:00.334Z | NET-4009 | WARNING | NIDS-DMZ-01 | 10.10.100.5 | 185.234.218.55 | TCP | 49000 | 443 | 51200 | 1 | BLOCK | Outbound from DMZ web server to bulletproof hosting. 50KB payload. Correlates with FW-2019.
+2025-07-14T06:07:55.112Z | NET-4010 | HIGH | NIDS-CORE-01 | 198.18.55.100 | 10.10.0.1 | TCP | 0 | MULTI | 0 | 500 | ALERT | External port scan detected. 500 SYN packets in 30 sec. Ports: 1-1024 sequential scan. GEO: BR-SaoPaulo. IPS rule: PORTSCAN-EXT-001.
+2025-07-14T06:08:30.441Z | NET-4011 | CRITICAL | NIDS-CORE-01 | 10.10.8.77 | 198.51.100.240 | TCP | 55001 | 4444 | 512 | 3 | BLOCK | C2 callback port 4444. 3 attempts in 21 min. Cobalt Strike default port. Host: WS-DEV-044. Correlates with ML-3008.
+2025-07-14T06:09:15.009Z | NET-4012 | INFO | NIDS-CORE-01 | 10.10.1.88 | 1.1.1.1 | UDP | 50002 | 53 | 96 | 1 | ALLOW | DNS query: nexacorp.sharepoint.com. Normal O365 traffic.
+2025-07-14T06:10:00.334Z | NET-4013 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.16 | TCP | 49801 | 445 | 2048 | 1 | ALERT | SMB: SRV-BACKUP-01 connecting to DC02. 2nd DC in sequence within 6 min. Lateral movement pattern confirmed. Stealthwatch flow anomaly score: 94/100.
+2025-07-14T06:10:00.334Z | NET-4013 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.16 | TCP | 49801 | 445 | 2048 | 1 | ALERT | SMB: SRV-BACKUP-01 connecting to DC02. 2nd DC in sequence within 6 min. Lateral movement pattern confirmed. Stealthwatch flow anomaly score: 94/100.
+2025-07-14T06:11:22.882Z | NET-4014 | CRITICAL | NIDS-CORE-01 | 10.10.3.201 | 45.152.66.201 | TCP | 52201 | 8080 | 1024 | 1 | BLOCK | 2nd C2 beacon. 30-min periodic interval confirmed. Beaconing fingerprint match: CobaltStrike. INCIDENT: INC-20250714-0071
+2025-07-14T06:12:00.334Z | NET-4015 | WARNING | NIDS-CORE-01 | 172.16.50.3 | 10.10.20.1 | TCP | 44001 | 389 | 256 | 12 | ALERT | LDAP enumeration from unregistered host. 12 queries to DC01 LDAP in 2 min. Possible AD reconnaissance.
+2025-07-14T06:13:15.441Z | NET-4016 | INFO | NIDS-BRANCH-05 | 192.168.10.55 | 10.10.50.30 | TCP | 57221 | 3389 | 2048 | 1 | ALLOW | RDP session. Branch office to HQ app server. Flagged for monitoring per policy.
+2025-07-14T06:14:30.009Z | NET-4017 | HIGH | NIDS-CORE-01 | 10.10.7.150 | 203.0.113.88 | TCP | 49901 | 443 | 204800 | 1 | BLOCK | 2nd large outbound HTTPS. 200KB payload. Escalated. Total staged: 300KB. Correlates with FW-2023, ML-3027. INCIDENT: INC-20250714-0078
+2025-07-14T06:15:00.334Z | NET-4018 | INFO | NIDS-CORE-01 | 10.10.2.33 | 10.10.50.10 | TCP | 63001 | 443 | 3072 | 1 | ALLOW | HTTPS intranet. User: pkumar. Normal.
+2025-07-14T06:16:22.778Z | NET-4019 | CRITICAL | NIDS-CORE-01 | 10.10.6.45 | 203.0.113.55 | TCP | 50100 | 21 | 0 | 1 | BLOCK | FTP outbound blocked. Finance workstation to external FTP server. No business justification. Correlates with FW-2015, ML-3027.
+2025-07-14T06:16:22.778Z | NET-4019 | CRITICAL | NIDS-CORE-01 | 10.10.6.45 | 203.0.113.55 | TCP | 50100 | 21 | 0 | 1 | BLOCK | FTP outbound blocked. Finance workstation to external FTP server. No business justification. Correlates with FW-2015, ML-3027.
+2025-07-14T06:17:45.112Z | NET-4020 | WARNING | NIDS-DMZ-01 | 10.10.100.12 | 8.8.8.8 | UDP | 44322 | 53 | 640 | 300 | ALERT | DNS tunneling confirmed: 300 queries in 5 min. Payload sizes abnormal (512B avg for TXT). Domain: secure-transfer-cdn[.]net. Isolating DMZ host.
+2025-07-14T06:18:00.334Z | NET-4021 | INFO | NIDS-CORE-01 | 10.10.3.112 | 10.10.50.20 | TCP | 61001 | 443 | 2048 | 1 | ALLOW | HTTPS to app server. User: ltorres. Normal.
+2025-07-14T06:19:15.334Z | NET-4022 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.17 | TCP | 49802 | 445 | 4096 | 1 | ALERT | SMB: SRV-BACKUP-01 now connected to DC03. 3rd DC in 19 min. NTDS.dit likely targeted. Stealthwatch score: 99/100. P1 INCIDENT.
+2025-07-14T06:19:15.334Z | NET-4022 | HIGH | NIDS-CORE-01 | 10.10.5.201 | 10.10.20.17 | TCP | 49802 | 445 | 4096 | 1 | ALERT | SMB: SRV-BACKUP-01 now connected to DC03. 3rd DC in 19 min. NTDS.dit likely targeted. Stealthwatch score: 99/100. P1 INCIDENT.
+2025-07-14T06:20:30.882Z | NET-4023 | CRITICAL | NIDS-CORE-01 | 10.10.8.77 | 10.10.20.10 | TCP | 55100 | 5985 | 0 | 1 | BLOCK | WinRM attempt from dev workstation to DC. Blocked. Lateral movement tool: Impacket WMIExec. Correlates with FW-2028.
+2025-07-14T06:21:00.334Z | NET-4024 | INFO | NIDS-CORE-01 | 10.10.4.55 | 10.10.50.10 | TCP | 64001 | 443 | 1536 | 1 | ALLOW | HTTPS intranet. User: hpatel. Normal.
+2025-07-14T06:22:15.441Z | NET-4025 | WARNING | NIDS-CORE-01 | 10.10.19.44 | 10.10.1.0/24 | TCP | 0 | MULTI | 0 | 1024 | ALERT | Internal port scan. 1024 SYN packets targeting 10.10.1.0/24 subnet. Source: SRV-APPSVR-05. Possible compromised server or red team. Rule: PORTSCAN-INT-001
+2025-07-14T06:23:30.009Z | NET-4026 | HIGH | NIDS-CORE-01 | 10.10.3.201 | 45.152.66.201 | TCP | 52202 | 8080 | 1024 | 1 | BLOCK | 3rd C2 beacon. 30-min interval confirmed. Cobalt Strike implant active. Host: WS-IT-033. INCIDENT: INC-20250714-0071
+2025-07-14T06:24:00.334Z | NET-4027 | INFO | NIDS-CORE-01 | 10.10.1.120 | 10.10.50.15 | TCP | 62200 | 8443 | 4096 | 1 | ALLOW | HTTPS management portal. User: dkimura. Normal admin activity.
+2025-07-14T06:25:22.778Z | NET-4028 | CRITICAL | NIDS-CORE-01 | 10.10.5.201 | 203.0.113.200 | TCP | 52500 | 443 | 524288 | 1 | BLOCK | CRITICAL: 512MB outbound HTTPS from SRV-BACKUP-01. Possible NTDS.dit exfiltration. Session truncated. DLP + IPS triggered. INCIDENT: INC-20250714-0067.
+2025-07-14T06:25:22.778Z | NET-4028 | CRITICAL | NIDS-CORE-01 | 10.10.5.201 | 203.0.113.200 | TCP | 52500 | 443 | 524288 | 1 | BLOCK | CRITICAL: 512MB outbound HTTPS from SRV-BACKUP-01. Possible NTDS.dit exfiltration. Session truncated. DLP + IPS triggered. INCIDENT: INC-20250714-0067.
+2025-07-14T06:26:40.334Z | NET-4029 | HIGH | NIDS-DMZ-01 | 10.10.100.8 | 192.0.2.77 | UDP | 44500 | 53 | 1024 | 180 | ALERT | DNS anomaly: 180 requests in 3 min to newly registered domain (age: 2 days). Possible DGA or C2 via DNS. Domain: r4nd0m-upd4te-svc[.]io. Blacklisted.
+2025-07-14T06:27:00.334Z | NET-4030 | INFO | NIDS-CORE-01 | 10.10.8.44 | 10.10.50.20 | TCP | 57001 | 443 | 2048 | 1 | ALLOW | HTTPS to app portal. User: fmiller. Normal.
+2025-07-14T06:28:15.112Z | NET-4031 | CRITICAL | NIDS-CORE-01 | 10.10.8.77 | 198.51.100.240 | TCP | 55004 | 4444 | 1024 | 4 | BLOCK | C2 beacon 4th attempt. Now using HTTPS over port 4444. CobaltStrike Malleable C2 profile detected. TLS cert: self-signed. INCIDENT: INC-20250714-0075
+2025-07-14T06:29:30.334Z | NET-4032 | WARNING | NIDS-CORE-01 | 10.10.9.44 | 10.10.1.45 | TCP | 58001 | 445 | 512 | 1 | ALERT | Unusual SMB connection between user workstations. Source: WS-IT-unknown, Dest: WS-FINANCE-014. Possible worm spread attempt.
+2025-07-14T06:29:30.334Z | NET-4032 | WARNING | NIDS-CORE-01 | 10.10.9.44 | 10.10.1.45 | TCP | 58001 | 445 | 512 | 1 | ALERT | Unusual SMB connection between user workstations. Source: WS-IT-unknown, Dest: WS-FINANCE-014. Possible worm spread attempt.
+2025-07-14T06:30:45.882Z | NET-4033 | HIGH | NIDS-CORE-01 | 10.10.19.44 | 10.10.2.0/24 | TCP | 0 | MULTI | 0 | 1024 | ALERT | Internal scan now targeting 10.10.2.0/24. SRV-APPSVR-05 spreading sweep. Automated containment initiated.
+2025-07-14T06:32:00.334Z | NET-4034 | INFO | NIDS-CORE-01 | 10.10.2.67 | 172.217.14.196 | TCP | 56001 | 443 | 8192 | 1 | ALLOW | HTTPS to Google services. User: nrobinson. Normal.
+2025-07-14T06:33:22.441Z | NET-4035 | CRITICAL | NIDS-CORE-01 | 10.10.5.201 | 203.0.113.200 | TCP | 52501 | 443 | 1048576 | 1 | BLOCK | CRITICAL: 2nd attempt to exfil 1GB from SRV-BACKUP-01. Same external host. NTDS.dit exfiltration attempt #2. Host network quarantined. P0 INCIDENT.
