@@ -1,3 +1,30 @@
 2026-05-17 11:02:22 FIREWALL_BLOCK source_ip=45.88.21.11 destination_port=22 reason=Blocked SSH Attack
 
 2026-05-17 11:05:30 FIREWALL_ALERT source_ip=200.14.55.9 event=Traffic Spike
+2026-05-17 11:02:22 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
+2026-05-17 11:05:30 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
+2026-05-17 11:08:42 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
+2026-05-17 11:10:05 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_19] event=Port Scan
+2026-05-17 11:12:21 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
+2026-05-17 11:15:11 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
+2026-05-17 11:18:33 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
+2026-05-17 11:20:44 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_22] event=Suspicious Connection Volume
+2026-05-17 11:23:15 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
+2026-05-17 11:25:02 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_23] event=Unusual Outbound Traffic
+2026-05-17 11:27:18 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_24] destination_port=80 reason=HTTP Flood
+2026-05-17 11:30:47 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
+2026-05-17 11:33:09 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
+2026-05-17 11:35:12 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_25] event=Repeated Access Attempts
+2026-05-17 11:38:55 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
+2026-05-17 11:40:10 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_26] event=Abnormal Traffic Pattern
+2026-05-17 11:42:28 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
+2026-05-17 11:45:35 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_27] event=Botnet Traffic
+2026-05-17 11:48:41 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_24] destination_port=80 reason=HTTP Flood
+2026-05-17 11:50:19 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
+2026-05-17 11:53:03 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_28] destination_port=21 reason=FTP Brute Force
+2026-05-17 11:55:49 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_29] event=Malicious Connection Attempt
+2026-05-17 11:58:17 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_3] destination_port=22 reason=Blocked SSH Attack
+2026-05-17 12:00:05 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_30] event=Port Enumeration
+2026-05-17 12:02:31 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_21] destination_port=445 reason=SMB Exploit Attempt
+2026-05-17 12:05:15 FIREWALL_ALERT source_ip=[REDACTED_IPV4_ADDRESS_4] event=Traffic Spike
+2026-05-17 12:08:22 FIREWALL_BLOCK source_ip=[REDACTED_IPV4_ADDRESS_20] destination_port=3389 reason=RDP Brute Force
